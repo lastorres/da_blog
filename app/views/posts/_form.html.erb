@@ -23,6 +23,11 @@
     <%= form.text_area :blog_entry, placeholder: "Tell Us Something...", class: "form-control" %>
   </div>
 
+<div class="form-group">
+    <strong>Upload an Image:</strong>
+    <%= form.file_field :image %>
+</div>
+
   <div class="actions">
     <%= form.submit "Submit", class: "btn btn-primary" %>
   </div>
