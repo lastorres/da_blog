@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= link_to post.title, post %></h3>
+          <p><%= post.user.username %></p>
+        </div>
+
+        <div class="panel-body">
+          <%= post.blog_entry[0..100] %> (<%= link_to "Read More", post %>)
+        </div>
+
+        <div class="panel-footer">
+          <%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning" %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger" %>
+        </div>
+
+      </div> <!-- end of panel -->
+    </div> <!-- end of column -->
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>

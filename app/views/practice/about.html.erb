@@ -1,0 +1,25 @@
+<h1>Practice#about</h1>
+<p>Find me in app/views/practice/about.html.erb</p>
+
+
+<style>
+
+  #color_me_in {
+    background-color: <%= @color %>;
+    color: white;
+    width: 250px;
+    height: 250px;
+  }
+
+</style>
+
+<div id="color_me_in">
+  <p>
+    <%= @color.upcase %> BOX ACTIVATED!
+  </p>
+</div>
+
+<%= form_tag index_path do %>
+    <p><%= text_field_tag :name, nil, placeholder: "What's your name?" %></p>
+     <p><%= submit_tag :submit %></p>
+    <% end %>

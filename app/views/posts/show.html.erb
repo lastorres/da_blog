@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <p class="panel-title"><%= @post.title %></p>
+  </div>
+  <div class="panel-body">
+  <h4><%= @post.user.username %></h4>
+  <span class='small'><em><%= @post.created_at.streftime('%d %b %Y at %I:%M %p') %></em></span>
+  <% if @post.created_at != @post.updated_at %>
+  <br />
+  <span class="small"><em>Updated at: <%= @post.updated_at.strftime('%d %b %Y at %I:%M %p') %></em></span>
+<% end %>
+    <p><%= @post.blog_entry %></p>
+  </div>
+  <div class="panel-footer">
+  	<button class="btn btn-warning"><%= link_to 'Edit Post', edit_post_path(@post) %></button>
+	<button class="btn btn-danger"><%= link_to 'Delete Post', edit_post_path(@post) %></button>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-sm-6">
+	<div id="comments">
+			<%= render 'comments/form', comment: @comment %>
+			<% @post.comments.each do |comment| %>
+				<p class="well">
+					<strong><%= comment.user.username %></strong> said: <br/>
+					<%= comment.comment_entry %>
+				</p>
+			<% end %>
+		</div>
+	</div>
+</div>
