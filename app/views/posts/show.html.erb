@@ -25,7 +25,7 @@
 			<%= render 'comments/form', comment: @comment %>
 			<% @post.comments.each do |comment| %>
 				<p class="well">
-					<strong><%= comment.user.username %></strong> said: <br/>
+					<strong><%= image_tag comment.user.avatar, class="icon" %><%= comment.user.username %></strong> said: <br/>
 					<%= comment.comment_entry %>
 				</p>
 			<% end %>
