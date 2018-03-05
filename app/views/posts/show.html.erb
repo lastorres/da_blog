@@ -5,7 +5,7 @@
     <p class="panel-title"><%= @post.title %></p>
   </div>
   <div class="panel-body">
-  <h4><%= @post.user.username %></h4>
+  <h4><%= link_to @post.user.username, user_posts_path(id: @post.user_id) %></h4>
   <span class='small'><em><%= @post.created_at.streftime('%d %b %Y at %I:%M %p') %></em></span>
   <% if @post.created_at != @post.updated_at %>
   <br />
@@ -25,7 +25,7 @@
 			<%= render 'comments/form', comment: @comment %>
 			<% @post.comments.each do |comment| %>
 				<p class="well">
-					<strong><%= image_tag comment.user.avatar, class="icon" %><%= comment.user.username %></strong> said: <br/>
+					<strong><%= image_tag comment.user.avatar, class="icon" %><%= link_to comment.user.username, user_posts_path(id: comment.user_id) %></strong> said: <br/>
 					<%= comment.comment_entry %>
 				</p>
 			<% end %>

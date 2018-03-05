@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :posts
 
   root 'posts#index'
+
+  get 'user_posts' => 'posts#user_posts'
   
   get 'index' => 'practice#index'
 
