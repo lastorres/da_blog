@@ -6,7 +6,7 @@
   </div>
   <div class="panel-body">
   <h4><%= @post.user.username %></h4>
-  <span class='small'><em><%= @post.created_at.streftime('%d %b %Y at %I:%M %p') %></em></span>
+  <span class='small'><em><%= @post.created_at.strftime('%d %b %Y at %I:%M %p') %></em></span>
   <% if @post.created_at != @post.updated_at %>
   <br />
   <span class="small"><em>Updated at: <%= @post.updated_at.strftime('%d %b %Y at %I:%M %p') %></em></span>
